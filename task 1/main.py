@@ -1,25 +1,27 @@
-def create_array(i):
-    j = 0
-    a1 = []
-    a2 = []
-    while j < i:
-        elem = input(f"Введите {j + 1} элемент: ")
-        a1.append(elem)
-        j += 1
-    print("Исходный массив: ", a1)
-    #дано: [a1,a2,a3...an]
-    #сделать: [a1,a1+a2,a1+a2+a3...a1+a2+a3+an]
+def create_array():
+    input_array = []
+    array_len = int(input("Введите длину массива: "))
+    i = 0
+    for i in range(array_len):
+        elem = int(input(f"Введите {i + 1} элемент массива: "))
+        input_array.append(elem)
+        i += 1
+    print("Исходный массив: ", input_array)
+    return (input_array)
+
+def transform_array(array):
+    output_array = []
     j = 0
     elem = 0
-    while j < i:
-        elem += int(a1[j])
-        a2.append(elem)
+    for j in range(len(array)):
+        elem += int(array[j])
+        output_array.append(elem)
         j += 1
-    print("Новый массив: ", a2)
+    print("Новый массив: ", output_array)
 
 def main():
-    i = int(input("Введите количество элементов: "))
-    create_array(i)
+    input_array = create_array()
+    transform_array(input_array)
 
 if __name__ == '__main__':
     main()
