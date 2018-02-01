@@ -4,8 +4,8 @@ def letter_search(letter,text):
         if i == letter:
             count += 1
     if count != 0:
-        c = str(count)
-        print("Буква "+letter+" найдена и она встречается "+c+" раз")
+        print("Буква {} найдена и она встречается {} раз".format(letter, count))
+        #print(f"Буква {letter} найдена и она встречается {count} раз") only for v 3.6.0 and older
     else:
         print("Буквы в строке нет")
 
