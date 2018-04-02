@@ -9,11 +9,8 @@ def create_user():
         age = 0
         while age == 0:
             age = int(input("Введите возраст: "))
-            if age < 0:
-                print("Возраст не может быть отрицательным числом!")
-                age = 0
-            elif age == 0:
-                print("Возраст не может быть равен нулю!")
+            if age <= 0:
+                print("Возраст не может быть отрицательным числом или нулем!")
                 age = 0
             else:
                 break
@@ -21,7 +18,7 @@ def create_user():
         data = f"Имя: {name} \nФамилия: {surname} \nВозраст: {age} \nМесто учебы: {studing}"
         base[user_id] = data
     print(f"{count} пользователей были успешно добавлены")
-    return (base)
+    return base
 
 
 def show_all_users(base):
@@ -33,7 +30,7 @@ def find_user_by_id(base):
     search_id = int(input("Введите номер пользователя: "))
     try:
         print(base[search_id])
-    except Exception:
+    except KeyError:
         print(f"Пользователя с номером {search_id} не существует!")
 
 
@@ -42,7 +39,7 @@ def main():
     show_all_users(base)
     find_user_by_id(base)
     answer = True
-    while answer == True:
+    while answer:
         choie = input("Искать пользователя дальше? y/n: ")
         if choie == "n":
             break
